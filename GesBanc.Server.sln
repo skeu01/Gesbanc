@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gesbanc.Common", "Gesbanc.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gesbanc.Model", "Gesbanc.Model\Gesbanc.Model.csproj", "{A98870A7-304D-471E-868D-2E4FF7ECB102}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gesbanc.Infrastructure", "Gesbanc.Infrastructure\Gesbanc.Infrastructure.csproj", "{366C74E5-8B60-41C3-A858-4A780F78C0D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gesbanc.Infrastructure", "Gesbanc.Infrastructure\Gesbanc.Infrastructure.csproj", "{366C74E5-8B60-41C3-A858-4A780F78C0D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gesbanc.UnitTesting", "Gesbanc.UnitTesting\Gesbanc.UnitTesting.csproj", "{76AEB7CD-5F6C-4CBE-A762-1DFDE51F96B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{366C74E5-8B60-41C3-A858-4A780F78C0D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{366C74E5-8B60-41C3-A858-4A780F78C0D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{366C74E5-8B60-41C3-A858-4A780F78C0D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76AEB7CD-5F6C-4CBE-A762-1DFDE51F96B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76AEB7CD-5F6C-4CBE-A762-1DFDE51F96B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76AEB7CD-5F6C-4CBE-A762-1DFDE51F96B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76AEB7CD-5F6C-4CBE-A762-1DFDE51F96B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
