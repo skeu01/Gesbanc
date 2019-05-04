@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GesBanc.Server", "GesBanc.Server\GesBanc.Server.csproj", "{B202BA6A-2B55-427F-ACA1-725BA8A2E9C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GesBanc.Server", "GesBanc.Server\GesBanc.Server.csproj", "{B202BA6A-2B55-427F-ACA1-725BA8A2E9C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gesbanc.Business", "Gesbanc.Business\Gesbanc.Business.csproj", "{E3BD399B-2BC0-42BC-B73D-89350E3117EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gesbanc.Common", "Gesbanc.Common\Gesbanc.Common.csproj", "{48882DF2-F36D-4033-BACA-14B606FE7557}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gesbanc.Model", "Gesbanc.Model\Gesbanc.Model.csproj", "{A98870A7-304D-471E-868D-2E4FF7ECB102}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gesbanc.Infrastructure", "Gesbanc.Infrastructure\Gesbanc.Infrastructure.csproj", "{366C74E5-8B60-41C3-A858-4A780F78C0D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{B202BA6A-2B55-427F-ACA1-725BA8A2E9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B202BA6A-2B55-427F-ACA1-725BA8A2E9C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B202BA6A-2B55-427F-ACA1-725BA8A2E9C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3BD399B-2BC0-42BC-B73D-89350E3117EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3BD399B-2BC0-42BC-B73D-89350E3117EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3BD399B-2BC0-42BC-B73D-89350E3117EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3BD399B-2BC0-42BC-B73D-89350E3117EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48882DF2-F36D-4033-BACA-14B606FE7557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48882DF2-F36D-4033-BACA-14B606FE7557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48882DF2-F36D-4033-BACA-14B606FE7557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48882DF2-F36D-4033-BACA-14B606FE7557}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A98870A7-304D-471E-868D-2E4FF7ECB102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A98870A7-304D-471E-868D-2E4FF7ECB102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A98870A7-304D-471E-868D-2E4FF7ECB102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A98870A7-304D-471E-868D-2E4FF7ECB102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{366C74E5-8B60-41C3-A858-4A780F78C0D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{366C74E5-8B60-41C3-A858-4A780F78C0D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{366C74E5-8B60-41C3-A858-4A780F78C0D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{366C74E5-8B60-41C3-A858-4A780F78C0D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
