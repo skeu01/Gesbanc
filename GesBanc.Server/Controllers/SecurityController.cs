@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Gesbanc.Business.Contracts;
 using Gesbanc.Common.Helpers;
+using Gesbanc.Model.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -27,9 +28,9 @@ namespace GesBanc.Server.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("authenticate")]
-        public async Task<IActionResult> Authenticate([FromBody]string username, string password)
+        public async Task<IActionResult> Authenticate([FromBody]UserLoginDto userlogin)
         {
-            var user = await _service.AuthenticateAsync(username, password, _appSettings.Secret);
+            var user = await _service.AuthenticateAsync(userlogin.Username, userlogin.Password, _appSettings.Secret);
 
             if (user == null)
                 return Unauthorized();

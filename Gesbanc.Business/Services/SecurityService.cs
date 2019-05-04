@@ -40,8 +40,8 @@ namespace Gesbanc.Business.Services
             if (userEntity == null)
                 return null;
 
-
-            return _tokenManager.GenerateToken(userEntity.Id, secret);
+            var token = _tokenManager.GenerateToken(userEntity.Id, secret);
+            return token;
         }
     }
 }

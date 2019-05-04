@@ -35,6 +35,18 @@ namespace GesBanc.Server.Controllers
             return Ok(entities);
         }
 
+        [HttpGet]
+        [Route("grupo")]
+        public async Task<IActionResult> GetAllGrupoEntidadAsync()
+        {
+            var entities = await _service.GetAllGrupoEntidadAsync();
+
+            if (entities == null)
+                return BadRequest();
+
+            return Ok(entities);
+        }
+
 
         [HttpGet]
         [Route("id/{id}")]
@@ -70,7 +82,7 @@ namespace GesBanc.Server.Controllers
             return Ok(entity);
         }
 
-        [HttpPut]
+        [HttpDelete]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var entity = await _service.DeleteAsync(id);

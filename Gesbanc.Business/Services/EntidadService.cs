@@ -34,5 +34,15 @@ namespace Gesbanc.Business.Services
             return entities;
         }
 
+        /// <summary>
+        /// get list of active / inactive grupo entidades
+        /// </summary>
+        /// <param name="activo">true / false / null (all)</param>
+        /// <returns>list of entities</returns>
+        public async Task<List<GrupoEntidadEntity>> GetAllGrupoEntidadAsync()
+        {
+            return await _repository.GetAllGrupoEntidadesAsync();
+        }
+
     }
 }

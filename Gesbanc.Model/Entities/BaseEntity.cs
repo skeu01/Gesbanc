@@ -8,7 +8,7 @@ namespace Gesbanc.Model
     {
         [Key]
         public int Id { get; set; }
-        public DateTime DateCreated { get { return DateTime.Now; } }
-        public DateTime DateUpdated { get { if (DateUpdated == null) { return DateTime.Now; } return DateUpdated; } }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateUpdated { get; set; }
     }
 }

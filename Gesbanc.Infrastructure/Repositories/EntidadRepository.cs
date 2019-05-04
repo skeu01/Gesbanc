@@ -1,6 +1,9 @@
 ﻿using Gesbanc.Infrastructure.Context;
 using Gesbanc.Infrastructure.Contracts;
 using Gesbanc.Model.Entities;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Gesbanc.Infrastructure.Repositories
 {
@@ -13,6 +16,14 @@ namespace Gesbanc.Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
+        /// <summary>
+        /// Get all Grupo entidades
+        /// </summary>
+        /// <returns>list of grupo entidades</returns>
+        public async Task<List<GrupoEntidadEntity>> GetAllGrupoEntidadesAsync()
+        {
+            return await _dbContext.GrupoEntidad.ToListAsync();
+        }
 
     }
 }

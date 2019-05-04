@@ -18,8 +18,7 @@ namespace Gesbanc.Infrastructure.Context
         {
             //Configure relations
             builder.Entity<UserEntity>()
-                .HasIndex(u => u.Id)
-                .IsUnique(true);
+                .HasKey(u => u.Id);
 
             builder.Entity<UserEntity>()
                 .Property(x => x.Active)
@@ -79,56 +78,7 @@ namespace Gesbanc.Infrastructure.Context
                    Nombre = "Bankia",
                    Color = "Verde"
                }
-           );
-
-            builder.Entity<EntidadEntity>().HasData(
-               new EntidadEntity
-               {
-                   Id = 1,
-                   GrupoEntidadId = 1,
-                   Nombre = "Sabadell",
-                   CodPostal = "01234",
-                   Estado_Activo = true,
-                   Logo = "logo1.png",
-                   Mail = "sabadell@test.com",
-                   Pais = "España",
-                   Provincia = "Alicante",
-                   Poblacion = "Elche",
-                   Telefono = "12486196"
-
-               },
-              new EntidadEntity
-              {
-                  Id = 1,
-                  GrupoEntidadId = 1,
-                  Nombre = "Sabadell 2",
-                  CodPostal = "43432",
-                  Estado_Activo = true,
-                  Logo = "logo1.png",
-                  Mail = "sabadell2@test2.com",
-                  Pais = "España",
-                  Provincia = "Alicante",
-                  Poblacion = "Alicante",
-                  Telefono = "454634"
-
-              },
-              new EntidadEntity
-              {
-                  Id = 1,
-                  GrupoEntidadId = 2,
-                  Nombre = "Bankia",
-                  CodPostal = "01234",
-                  Estado_Activo = true,
-                  Logo = "logo2.png",
-                  Mail = "Bankia@test.com",
-                  Pais = "España",
-                  Provincia = "Madrid",
-                  Poblacion = "Madrid",
-                  Telefono = "12486196"
-              }
-           );
-
-            
+           );            
         }
     }
 }

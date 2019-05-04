@@ -12,15 +12,13 @@ using Gesbanc.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace GesBanc.Server
 {
@@ -59,8 +57,22 @@ namespace GesBanc.Server
                 app.UseHsts();
             }
 
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1.0/swagger.json", "Versioned API v1.0");
+
+                c.DocumentTitle = "Title Documentation";
+                c.DocExpansion(DocExpansion.None);
+            });
+
+            
+            
         }
 
         /// <summary>
@@ -102,33 +114,28 @@ namespace GesBanc.Server
         /// <param name="services">IServiceCollection object</param>
         private void AddJwtTokenConfig(IServiceCollection services)
         {
-
-            // configure typed settings objects
-            var appSettingsSection = Configuration.GetSection("AppSettings");
-            services.Configure<AppSettings>(appSettingsSection);
-
-            // configure jwt authentication
-            var appSettings = appSettingsSection.Get<AppSettings>();
-            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            services.Configure<TokenManagement>(Configuration.GetSection("AppSettings"));
+            var token = Configuration.GetSection("AppSettings").Get<TokenManagement>();
+            var secret = Encoding.ASCII.GetBytes(token.Secret);
 
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(x =>
+            }).AddJwtBearer(x =>
             {
                 x.RequireHttpsMetadata = false;
                 x.SaveToken = true;
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.Secret)),
+                    ValidIssuer = token.Issuer,
+                    ValidAudience = token.Audience,
                     ValidateIssuer = false,
-                    ValidateAudience = false,
-                    RequireExpirationTime = false
+                    ValidateAudience = false
                 };
-            });
+            }); 
         }
 
         /// <summary>
@@ -138,6 +145,7 @@ namespace GesBanc.Server
         /// <param name="services">IServiceCollection object</param>
         private void AddSwagger(IServiceCollection services)
         {
+
             // Register the Swagger generator, defining 1 or more Swagger documents
             //Swagger
             services.AddSwaggerGen(c =>

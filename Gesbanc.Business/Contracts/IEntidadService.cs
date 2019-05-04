@@ -12,5 +12,12 @@ namespace Gesbanc.Business.Contracts
         /// <param name="activo">true / false / null (all)</param>
         /// <returns>list of entities</returns>
         Task<List<EntidadEntity>> GetAllAsync(bool? activo);
+
+        /// <summary>
+        /// get list of active / inactive grupo entidades
+        /// </summary>
+        /// <param name="activo">true / false / null (all)</param>
+        /// <returns>list of entities</returns>
+        Task<List<GrupoEntidadEntity>> GetAllGrupoEntidadAsync();
     }
 }
