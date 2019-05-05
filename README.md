@@ -10,12 +10,13 @@ Change ConnectionString to the desired (the Initial Catalog is "gesbanc" by defa
   a) Select Gesbanc.Infrastructure as default project.
   b) execute: "update-database" to migrate database structure and example data.
 
-3) Run Project with "Gesbanc.Server" as default.
+3) Compile and run the Project with "Gesbanc.Server" as default.
 
 Notes:
 
 * Added some Unit testing with MSTest.
 * Added JWT authentication.
+* Added Automapper.
 * Swagger:
   - Added swagger, to access go to the next url: https://localhost:44313/swagger
   - It has security by default. To proceed with, go to "Security" controller and log in as: 
