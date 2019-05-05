@@ -1,4 +1,5 @@
-﻿using Gesbanc.Model.Entities;
+﻿using Gesbanc.Model.Dtos;
+using Gesbanc.Model.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -6,13 +7,13 @@ namespace Gesbanc.Business.Contracts
 {
     public interface IEntidadService : IBaseService<EntidadEntity>
     {
-        /// <summary>
-        /// get list of active / inactive entities
-        /// </summary>
-        /// <param name="activo">true / false / null (all)</param>
-        /// <returns>list of entities</returns>
-        Task<List<EntidadEntity>> GetAllAsync(bool? activo);
 
+        /// <summary>
+        /// Get all entidades with grupo entidad
+        /// </summary>
+        /// <returns>list of grupo entidades</returns>
+        Task<List<EntidadDto>> GetAllEntidadesAsync(bool? activo);
+        
         /// <summary>
         /// get list of active / inactive grupo entidades
         /// </summary>

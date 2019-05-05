@@ -27,7 +27,7 @@ namespace GesBanc.Server.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllAsync(bool? activo)
         {
-            var entities = await _service.GetAllAsync(activo);
+            var entities = await _service.GetAllEntidadesAsync(activo);
 
             if (entities == null)
                 return BadRequest();
@@ -61,7 +61,7 @@ namespace GesBanc.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync(EntidadEntity entidad)
+        public async Task<IActionResult> PostAsync([FromBody]EntidadEntity entidad)
         {
             var entity = await _service.PostAsync(entidad);
 
@@ -72,7 +72,7 @@ namespace GesBanc.Server.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> PutAsync(EntidadEntity entidad)
+        public async Task<IActionResult> PutAsync([FromBody]EntidadEntity entidad)
         {
             var entity = await _service.PutAsync(entidad);
 
@@ -83,6 +83,7 @@ namespace GesBanc.Server.Controllers
         }
 
         [HttpDelete]
+        [Route("id/{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var entity = await _service.DeleteAsync(id);

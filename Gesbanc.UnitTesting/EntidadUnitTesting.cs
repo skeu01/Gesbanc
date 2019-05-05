@@ -1,3 +1,4 @@
+using AutoMapper;
 using Gesbanc.Business.Contracts;
 using Gesbanc.Business.Services;
 using Gesbanc.Infrastructure.Context;
@@ -16,6 +17,7 @@ namespace Gesbanc.UnitTesting
     [TestClass]
     public class EntidadUnitTesting
     {
+        private readonly IMapper _mapper;
 
         [TestMethod]
         public async Task PostAsyncTest()
@@ -29,7 +31,7 @@ namespace Gesbanc.UnitTesting
             {
                 var repo = new EntidadRepository(context);
 
-                var service = new EntidadService(repo);
+                var service = new EntidadService(repo, _mapper);
 
                 var entities = generateFakeEntidades();
 
@@ -61,7 +63,7 @@ namespace Gesbanc.UnitTesting
 
                 var entity = new EntidadEntity();
 
-                var service = new EntidadService(repo);
+                var service = new EntidadService(repo, _mapper);
 
                 if (context.Entidad.Count() == 0)
                 {
@@ -101,7 +103,7 @@ namespace Gesbanc.UnitTesting
             {
                 var repo = new EntidadRepository(context);
 
-                var service = new EntidadService(repo);
+                var service = new EntidadService(repo, _mapper);
 
                 var entities = generateFakeEntidades();
 
@@ -136,7 +138,7 @@ namespace Gesbanc.UnitTesting
             {
                 var repo = new EntidadRepository(context);
 
-                var service = new EntidadService(repo);
+                var service = new EntidadService(repo, _mapper);
 
                 var entities = generateFakeEntidades();
 
@@ -165,7 +167,7 @@ namespace Gesbanc.UnitTesting
             {
                 var repo = new EntidadRepository(context);
 
-                var service = new EntidadService(repo);
+                var service = new EntidadService(repo, _mapper);
 
                 var entities = generateFakeEntidades();
 

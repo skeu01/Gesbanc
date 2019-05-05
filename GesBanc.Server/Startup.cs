@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Gesbanc.Business.Contracts;
 using Gesbanc.Business.Services;
 using Gesbanc.Common.Helpers;
@@ -39,6 +40,7 @@ namespace GesBanc.Server
             AddDIConfig(services);
             AddJwtTokenConfig(services);
             AddSwagger(services);
+            AddAutoMapperConfig(services);
 
             services.AddDbContext<GesbancContext>(c =>
                 c.UseSqlServer(Configuration.GetConnectionString("GesbancConnection")));
@@ -114,7 +116,9 @@ namespace GesBanc.Server
         /// <param name="services">IServiceCollection object</param>
         private void AddJwtTokenConfig(IServiceCollection services)
         {
-            services.Configure<TokenManagement>(Configuration.GetSection("AppSettings"));
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+
             var token = Configuration.GetSection("AppSettings").Get<TokenManagement>();
             var secret = Encoding.ASCII.GetBytes(token.Secret);
 
@@ -167,6 +171,19 @@ namespace GesBanc.Server
                 });
                 c.AddSecurityRequirement(security);
             });
+        }
+
+        private void AddAutoMapperConfig(IServiceCollection services)
+        {
+            // Auto Mapper Configurations
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            services.AddAutoMapper();
+
+            //_services = services;
         }
     }
 

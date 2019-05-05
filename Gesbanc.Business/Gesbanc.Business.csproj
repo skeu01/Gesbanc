@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Gesbanc.Common\Gesbanc.Common.csproj" />
     <ProjectReference Include="..\Gesbanc.Infrastructure\Gesbanc.Infrastructure.csproj" />
     <ProjectReference Include="..\Gesbanc.Model\Gesbanc.Model.csproj" />

@@ -3,6 +3,7 @@ using Gesbanc.Infrastructure.Contracts;
 using Gesbanc.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Gesbanc.Infrastructure.Repositories
@@ -14,6 +15,18 @@ namespace Gesbanc.Infrastructure.Repositories
         public EntidadRepository(GesbancContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
+        }
+
+        /// <summary>
+        /// Get All entities.
+        /// </summary>
+        /// <returns>List of Entities</returns>
+        public async Task<List<EntidadEntity>> GetAllEntidadesAsync()
+        {
+            return await _dbContext.Set<EntidadEntity>()
+            .Include(x => x.GrupoEntidad)
+            .OrderBy(x => x.Id)
+            .ToListAsync();
         }
 
         /// <summary>
